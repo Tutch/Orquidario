@@ -1,16 +1,17 @@
 'use strict';
 
 let Store = require('nedb');
+let path = require('path');
 
 class DbHandler {
-    constructor() {
+    constructor(folder) {
         this.orchidInfoDb = new Store({
-            filename: './data/orchid_info.db',
+            filename:path.join(folder, 'orchid_info.db'),
             autoload: true
         });
         
         this.orchidCollectionDb = new Store({
-            filename: './data/orchid_collection.db',
+            filename:path.join(folder, 'orchid_collection.db'),
             autoload: true
         })
     }

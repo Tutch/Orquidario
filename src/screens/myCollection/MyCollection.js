@@ -25,7 +25,7 @@ export class MyCollection extends React.Component {
         return (
             <div>
                 <Sidebar />
-                <ContentArea title="Minha Coleção">
+                    <ContentArea title="Minha Coleção">
                     <Collection items={this.state.collection}/>
                 </ContentArea>
             </div>

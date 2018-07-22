@@ -1,23 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
+import { render } from 'react-dom';
+import App from './components/App';
 
-// Router
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+// Since we are using HtmlWebpackPlugin WITHOUT a template, we should create our own root node in the body element before rendering into it
+let root = document.createElement('div');
+root.id = "root";
+document.body.appendChild( root );
 
-// Screens
-import { NewOrchid } from './screens/newOrchid/NewOrchid';
-import { MyCollection } from './screens/myCollection/MyCollection';
+// Materialize
+//document.body.appendChild('<script type="text/javascript" src="js/hammer.min.js"></script>');
+//document.body.appendChild('<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>');
 
-ReactDOM.render(
-    <BrowserRouter>
-        <div>
-            <Route exact={true} path="/" component={MyCollection} />        
-            <Route path="/nova-orquidea" component={NewOrchid} />        
-        </div>
-    </BrowserRouter>,     
-    document.getElementById('root')
-);
 
-registerServiceWorker();
+// Now we can render our application into it
+render( <App />, document.getElementById('root') );

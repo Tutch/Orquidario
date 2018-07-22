@@ -9,8 +9,8 @@ export const NewOrchidForm = (props) => {
 
     return (
         <form onSubmit={saveOrchid}>
-            <div>
-                <label htmlFor="description">Descrição</label>
+            <div className="input-field">
+                <label htmlFor="description" className="active">Descrição</label>
                 <input placeholder="Descrição breve da orquídea"
                        onChange={setDescription} 
                        name="description"
@@ -19,7 +19,7 @@ export const NewOrchidForm = (props) => {
             </div>
             <div>
                 <label htmlFor="subfamily">Subfamília</label>
-                <select name="subfamily" onChange={setSubfamily}>
+                <select className="browser-default" name="subfamily" onChange={setSubfamily}>
                     {
                         families.map((family, i) => {
                             return <option key={i} value={family}>{family}</option>
