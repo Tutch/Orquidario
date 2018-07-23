@@ -2,8 +2,7 @@ import React from 'react';
 
 // Components
 import { Collection } from './components/Collection';
-import { Sidebar } from '../../common/components/sidebar/Sidebar';
-import { ContentArea } from '../../common/components/contentArea/ContentArea';
+import { ContentArea } from '../../components/contentArea/ContentArea';
 
 const electron = window.require('electron');
 const ipcRenderer  = electron.ipcRenderer;
@@ -23,12 +22,9 @@ export class MyCollection extends React.Component {
 
     render() {
         return (
-            <div>
-                <Sidebar />
-                    <ContentArea title="Minha Coleção">
-                    <Collection items={this.state.collection}/>
-                </ContentArea>
-            </div>
+            <ContentArea title="Minha Coleção">
+                <Collection items={this.state.collection}/>
+            </ContentArea>
         );
     }
 }

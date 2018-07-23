@@ -1,8 +1,7 @@
 import React from 'react';
 
 // Components
-import { Sidebar } from '../../common/components/sidebar/Sidebar';
-import { ContentArea } from '../../common/components/contentArea/ContentArea';
+import { ContentArea } from '../../components/contentArea/ContentArea';
 import { NewOrchidForm } from './components/NewOrchidForm';
 
 const electron = window.require('electron');
@@ -77,15 +76,12 @@ export class NewOrchid extends React.Component {
 
     render() {
         return (
-            <div>
-                <Sidebar />                
-                <ContentArea title="Inserir Nova Orquídea">
-                    <NewOrchidForm subfamilies={this.state.subfamilies} 
-                                   setSubfamily={this.chooseSubfamily}
-                                   setDescription={this.setDescription}
-                                   saveOrchid={this.saveOrchid} />
-                </ContentArea>
-            </div>
+            <ContentArea title="Inserir Nova Orquídea">
+                <NewOrchidForm subfamilies={this.state.subfamilies} 
+                               setSubfamily={this.chooseSubfamily}
+                               setDescription={this.setDescription}
+                               saveOrchid={this.saveOrchid} />
+            </ContentArea>
         );
     }
 }

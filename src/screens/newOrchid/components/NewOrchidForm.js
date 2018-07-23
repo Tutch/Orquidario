@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Config from '../../../config';
 
 export const NewOrchidForm = (props) => {
     const families = props.subfamilies;
@@ -27,10 +28,16 @@ export const NewOrchidForm = (props) => {
                     }
                 </select>
             </div>
-            <input type="submit" value="Salvar"/>
+
+            <button className={'btn waves-effect waves-light '+ Config.mainColor} 
+                    type="submit" 
+                    name="action">
+                Salvar
+                <i className="material-icons right">save</i>
+            </button>                  
         </form>
     );
-}
+}  
 
 NewOrchidForm.propTypes = {
     subfamilies: PropTypes.array,

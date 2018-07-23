@@ -50,11 +50,21 @@ module.exports = {
       externals: [
         {
           module: 'material-icons',
-          entry: 'css/material-icons.min.css'
+          entry: 'iconfont/material-icons.css',
+          supplements: ['iconfont']
+        },
+        {
+          module: 'material-icons',
+          entry: 'css/material-icons.min.css',
         },
         {
           module: 'hammerjs',
           entry: 'hammer.min.js',
+        },
+        {
+          module: 'jquery',
+          entry: 'dist/jquery.min.js',
+          global: 'jQuery',
         },
         {
           module: 'materialize-css',

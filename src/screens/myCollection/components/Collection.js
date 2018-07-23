@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function renderCollection(items) {
     if(items.length > 0) {
         return (
-            <table>
+            <table className="highlight">
                 <thead>
                     <tr>
                         <th>Descrição</th>
