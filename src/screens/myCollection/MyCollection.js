@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import { Collection } from './components/Collection';
-import { ContentArea } from '../../components/contentArea/ContentArea';
+import { ContentArea } from '../../common/components/contentArea/ContentArea';
 
 const electron = window.require('electron');
 const ipcRenderer  = electron.ipcRenderer;

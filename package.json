@@ -1,12 +1,12 @@
 {
-  "name": "basic-electron-react-boilerplate",
-  "version": "0.7.0",
-  "description": "Minimal and modern react+electron+webpack boilerplate",
-  "author": "Phillip Barbiero",
+  "name": "orquidario",
+  "version": "0.0.1",
+  "description": "Programa para auxiliar criadores de orquídeas.",
+  "author": "Lucas Mapurunga",
   "homepage": "./",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pbarbiero/basic-electron-react-boilerplate.git"
+    "url": "https://gitlab.com/Tutch/Orquidario"
   },
   "license": "MIT",
   "main": "main.js",

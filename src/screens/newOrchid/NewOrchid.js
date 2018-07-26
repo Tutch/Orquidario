@@ -1,7 +1,8 @@
 import React from 'react';
+import withRouter from 'react-router-dom';
 
 // Components
-import { ContentArea } from '../../components/contentArea/ContentArea';
+import { ContentArea } from '../../common/components/contentArea/ContentArea';
 import { NewOrchidForm } from './components/NewOrchidForm';
 
 const electron = window.require('electron');
@@ -68,7 +69,7 @@ export class NewOrchid extends React.Component {
         };
 
         if(ipcRenderer.sendSync('save-orchid', orchid)) {
-            // deu bom
+            this.props.history.push('/');
         } else {
            // não deu bom
         }

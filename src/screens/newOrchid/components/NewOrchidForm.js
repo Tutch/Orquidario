@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Config from '../../../config';
+import Config from '../../../common/config';
 
 export const NewOrchidForm = (props) => {
     const families = props.subfamilies;

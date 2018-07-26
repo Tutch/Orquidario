@@ -1,4 +1,3 @@
-// temp
 const Config = {
     mainColor: 'red lighten-2'
 }
