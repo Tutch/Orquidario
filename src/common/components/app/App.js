@@ -5,8 +5,8 @@ import { HashRouter, Link, Route } from 'react-router-dom';
 
 // Screens
 import { Sidebar } from '../sidebar/Sidebar'
-import { NewOrchid } from '../../../screens/newOrchid/NewOrchid';
 import { MyCollection } from '../../../screens/myCollection/MyCollection';
+import { OrchidEditor } from '../../../screens/orchidEditor/orchidEditor';
 
 export const App = (props) => {
   return (
@@ -14,7 +14,7 @@ export const App = (props) => {
       <main>
           <section className="container">
             <Route exact={true} path="/" component={MyCollection} />     
-            <Route path="/nova-orquidea" component={NewOrchid} />
+            <Route path="/nova-orquidea" component={OrchidEditor} />
           </section>
           <Sidebar />
       </main>

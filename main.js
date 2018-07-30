@@ -5,40 +5,12 @@ const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path')
 const url = require('url')
 
-let DbHandler = require('./src/electron/dbHandler');
-const dataFolder = path.join(app.getAppPath(), 'data');
-const dbHandler = new DbHandler(dataFolder);
+// Handles IPC communication
+let ipcHandler = require('./src/electron/ipcHandler');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-
-// ipc Communication
-ipcMain.once('get-orchid-subfamilies', (event, arg) => {
-  // Load subfamilies
-  dbHandler.getSubfamilies().then((res) => {
-    event.sender.send('got-orchid-subfamilies', res);
-  }).catch((err) => {
-    console.log(err);
-  });
-})
-
-ipcMain.on('save-orchid', (event, arg) => {
-  dbHandler.saveOrchidToCollection(arg).then((res) => {
-    event.returnValue = true;
-  }).catch((err) => {
-    event.returnValue = false;
-  });
-})
-
-ipcMain.on('load-collection', (event, arg) => {
-  dbHandler.loadCollection().then((res) => {
-    console.log(res);
-    event.returnValue = res;
-  }).catch((err) => {
-    event.returnValue = {};
-  });
-})
 
 // Keep a reference for dev mode
 let dev = false;
