@@ -1,15 +1,15 @@
-# O que é o "Orquidário"?
+# O que Ã© o "OrquidÃ¡rio"?
 
-Orquidário é uma aplicação em desenvolvimento para servir de auxílio
-a hobbyistas cultivadores de orquídeas. O objetivo do programa é ajudar a catalogar as plantas junto com algumas informações de interesse e futuramente dar alertas ao cultivador.
+OrquidÃ¡rio Ã© uma aplicaÃ§Ã£o em desenvolvimento para servir de auxÃ­lio
+a hobbyistas cultivadores de orquÃ­deas. O objetivo do programa Ã© ajudar a catalogar as plantas junto com algumas informaÃ§Ãµes de interesse e futuramente dar alertas ao cultivador.
 
 ### Lista de features para o (futuro) 1.0
 
-- [ ] Salvar e listar as orquídeas
+- [ ] Salvar e listar as orquÃ­deas
 	- [x] Nome
-	- [x] Subfamília
-	- [ ] Outras informações de catalogação da planta
+	- [x] SubfamÃ­lia
+	- [ ] Outras informaÃ§Ãµes de catalogaÃ§Ã£o da planta
 	- [ ] Ciclo de rega da planta
 - [x] Permitir o upload de imagens
-- [ ] Editar as informações dessas orquídeas salvas
-- [ ] Galeria de fotos [ ] Galeria de fotos
+- [ ] Editar as informaÃ§Ãµes dessas orquÃ­deas salvas
+- [ ] Galeria de fotos
