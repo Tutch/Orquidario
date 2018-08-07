@@ -14,7 +14,7 @@ export const App = (props) => {
       <main>
           <section className="container">
             <Route exact={true} path="/" component={MyCollection} />     
-            <Route path="/nova-orquidea" component={OrchidEditor} />
+            <Route path="/orchid-editor" component={OrchidEditor} />
           </section>
           <Sidebar />
       </main>

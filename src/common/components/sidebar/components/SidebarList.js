@@ -8,10 +8,12 @@ export const SidebarList = (props) => {
         <>
             <SidebarListItem text="Minha Coleção" 
                                 icon="list"
-                                link="/"/>
+                                link="/"
+                                custom=""/>
             <SidebarListItem text="Inserir Nova Orquídea"
                                 icon="add" 
-                                link="/nova-orquidea"/>
+                                link="/orchid-editor"
+                                custom=""/>
         </>
     );
 }

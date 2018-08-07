@@ -11,6 +11,7 @@ const request = window.require('request');
 const ipcRenderer  = electron.ipcRenderer;
 
 let state = { 
+    editMode: false,
     description:'',
     subfamilies:[], 
     chosenSubfamily:'',
@@ -30,13 +31,28 @@ export class OrchidEditor extends React.Component {
     }
     
     componentWillMount() {
-        ipcRenderer.send('get-orchid-subfamilies');
-        ipcRenderer.on('got-orchid-subfamilies', (event, args) => {
-            this.populateSubfamilies(args);
+        const subfamilies = ipcRenderer.sendSync('get-orchid-subfamilies');
+
+        if(subfamilies) {
+            this.populateSubfamilies(subfamilies);
             this.setState({
-                chosenSubfamily: args[0]
+                chosenSubfamily: subfamilies[0]
+            });        
+        } else {
+           // não deu bom
+        }
+
+        this.formFields = {
+            description: ''
+        }
+
+        if(this.props.location.customProp) {
+            this.formFields = this.props.location.customProp.item;
+            
+            this.setState({
+                chosenSubfamily: this.formFields.subfamily
             });
-        });
+        }
     }
 
     componentWillUnmount() {
@@ -107,7 +123,8 @@ export class OrchidEditor extends React.Component {
     render() {
         return (
             <ContentArea title="Inserir Nova Orquídea">
-                <OrchidForm subfamilies={this.state.subfamilies} 
+                <OrchidForm formFields={this.formFields}
+                            subfamilies={this.state.subfamilies} 
                             setSubfamily={this.chooseSubfamily}
                             setDescription={this.setDescription}
                             selectPictures={this.selectPictures}

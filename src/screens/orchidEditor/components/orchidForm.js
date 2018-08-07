@@ -35,15 +35,19 @@ export const OrchidForm = (props) => {
                             <input placeholder="Descrição breve da orquídea"
                                 onChange={setDescription} 
                                 name="description"
-                                maxLength={50} 
+                                maxLength={50}
                                 type="text"
+                                defaultValue={props.formFields.description}
                                 required/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col s12">
                             <label htmlFor="subfamily">Subfamília</label>
-                            <select className="browser-default" name="subfamily" onChange={setSubfamily}>
+                            <select className="browser-default" 
+                                    defaultValue={props.formFields.subfamily}
+                                    name="subfamily" 
+                                    onChange={setSubfamily}>
                                 {
                                     families.map((family, i) => {
                                         return <option key={i} value={family}>{family}</option>

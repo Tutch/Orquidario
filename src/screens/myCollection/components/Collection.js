@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Components
+import { CollectionItem } from './CollectionItem'; 
+
 function renderCollection(items) {
     if(items.length > 0) {
         return (
@@ -9,16 +12,14 @@ function renderCollection(items) {
                     <tr>
                         <th>Descrição</th>
                         <th>Subfamília</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         items.map((item, i) => {
                             return (
-                                <tr key={i}>
-                                    <td>{item.description}</td>
-                                    <td>{item.subfamily}</td>
-                                </tr>
+                                <CollectionItem key={i} item={item} />
                             );                    
                         })
                     }
