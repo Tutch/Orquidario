@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Components
 import { CollectionItem } from './CollectionItem'; 
 
-function renderCollection(items) {
+function renderCollection(items, removeFunction) {
     if(items.length > 0) {
         return (
             <table className="highlight">
@@ -19,7 +19,9 @@ function renderCollection(items) {
                     {
                         items.map((item, i) => {
                             return (
-                                <CollectionItem key={i} item={item} />
+                                <CollectionItem key={i} 
+                                                item={item} 
+                                                removeOrchid={removeFunction}/>
                             );                    
                         })
                     }
@@ -35,8 +37,9 @@ function renderCollection(items) {
 
 export const Collection = (props) => {
     const items = props.items;
+    const removeOrchid = props.removeOrchid;
 
-    return renderCollection(items);
+    return renderCollection(items, removeOrchid);
 }
 
 Collection.propTypes = {

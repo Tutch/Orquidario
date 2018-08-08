@@ -11,7 +11,7 @@ const request = window.require('request');
 const ipcRenderer  = electron.ipcRenderer;
 
 let state = { 
-    editMode: false,
+    id: '',
     description:'',
     subfamilies:[], 
     chosenSubfamily:'',
@@ -50,7 +50,9 @@ export class OrchidEditor extends React.Component {
             this.formFields = this.props.location.customProp.item;
             
             this.setState({
-                chosenSubfamily: this.formFields.subfamily
+                chosenSubfamily: this.formFields.subfamily,
+                id: this.formFields._id,
+                files: this.formFields.pictures
             });
         }
     }
@@ -58,6 +60,7 @@ export class OrchidEditor extends React.Component {
     componentWillUnmount() {
         state = this.state;
         state.files = [];
+        state.id = '';
     }
 
     populateSubfamilies(args) {
@@ -89,8 +92,11 @@ export class OrchidEditor extends React.Component {
                 filters: [
                     {name: 'Images', extensions: ['jpg', 'png', 'gif']},
             ]} , (filePaths) => {
+                filePaths !== undefined ? filePaths : [];
+                let newFiles = this.state.files.concat(filePaths);
+
                 this.setState({
-                    files: filePaths
+                    files: newFiles
                 })
         });
     }
@@ -105,18 +111,22 @@ export class OrchidEditor extends React.Component {
 
     saveOrchid(event) {
         event.preventDefault();
-        
-        const orchid = { 
+
+        let orchid = { 
             description: this.state.description,
             subfamily: this.state.chosenSubfamily,
             pictures: this.state.files,
             timestamp: new Date().getTime()
         };
 
+        if(this.state.id != '') {
+            orchid['_id'] = this.state.id; 
+        }
+
         if(ipcRenderer.sendSync('save-orchid', orchid)) {
             this.props.history.push('/');
         } else {
-           // não deu bom
+            // não deu bom
         }
     }
 

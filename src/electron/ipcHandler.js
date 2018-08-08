@@ -16,6 +16,14 @@ ipcMain.on('get-orchid-subfamilies', (event, arg) => {
     });
 })
 
+ipcMain.on('remove-orchid', (event, id) => {
+    dbHandler.removeOrchid(id).then((res) => {
+        event.returnValue = true;
+    }).catch((err) => {
+        event.returnValue = false;
+    });
+})
+
 ipcMain.on('save-orchid', (event, arg) => {
     dbHandler.saveOrchidToCollection(arg).then((res) => {
         event.returnValue = true;

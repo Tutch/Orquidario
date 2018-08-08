@@ -8,6 +8,9 @@ import { OrchidEditor } from '../../orchidEditor/orchidEditor';
 
 export const CollectionItem = (props) => {
     const item = props.item;
+    const removeOrchid = props.removeOrchid;
+    const id = item._id;
+    const pictures = item.pictures;
 
     return (
         <tr>
@@ -24,10 +27,10 @@ export const CollectionItem = (props) => {
                         >
                     <i className="material-icons">edit</i>
                 </Link>
-                <Link className={Config.mainColorText}
-                      to="">
+                <a className={Config.mainColorText} 
+                   onClick={ (e) => removeOrchid({id:id, pictures:pictures}, e)} >
                     <i className="material-icons">clear</i>
-                </Link>            
+                </a>            
             </td>
         </tr>               
     );
