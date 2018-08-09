@@ -30,7 +30,7 @@ function renderCollection(items, removeFunction) {
         );
     } else {
         return (
-            <p>Coleção vazia?</p>
+            <p>Nenhuma orquídea adicionada.</p>
         );
     }
 }

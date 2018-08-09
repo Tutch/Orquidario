@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import Config from '../../../common/config';
+import '../css/OrchidForm.css';
 
 const path = window.require('path');
 
@@ -56,21 +59,6 @@ export const OrchidForm = (props) => {
                             </select>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col s12">
-                            <button className={'btn right waves-effect waves-light '+ Config.mainColor} 
-                                    type="submit" 
-                                    name="action">
-                                Salvar
-                                <i className="material-icons right">save</i>
-                            </button>
-                            <button className={'btn left waves-effect waves-light '+ Config.mainColor} 
-                                    onClick={selectPictures} >
-                                Inserir fotos
-                                <i className="material-icons right">attachment</i>
-                            </button>
-                        </div>
-                    </div>
                 </div>
                 <div className="col s6">
                     <label>Fotografias</label>
@@ -81,13 +69,13 @@ export const OrchidForm = (props) => {
                                     <li key={file.path} className="collection-item">
                                         <div>
                                             {file.display}
-                                            <a href="#!" 
+                                            <Link to="#" 
                                                onClick={
                                                    (e) => removePicture(file, e)
                                                 }
                                                className={'secondary-content ' + Config.mainColorText}>
                                                 <i className="material-icons">clear</i>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </li>
                                 );
@@ -95,7 +83,22 @@ export const OrchidForm = (props) => {
                         }
                     </ul>
                 </div>
-            </div>                  
+            </div>      
+            <div className="row">
+                <div className="col s12">
+                    <button className={'btn waves-effect waves-light '+ Config.mainColor} 
+                            onClick={selectPictures} >
+                        Inserir fotos
+                        <i className="material-icons right">attachment</i>
+                    </button>
+                    <button id="saveOrchid" className={'btn waves-effect waves-light '+ Config.mainColor} 
+                            type="submit" 
+                            name="action">
+                        Salvar
+                        <i className="material-icons right">save</i>
+                    </button>
+                </div>
+            </div>            
         </form>
     );
 }  

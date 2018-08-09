@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../../common/config';
+import './css/CollectionItem.css';
 
 // Router
 import { HashRouter, Link, Route } from 'react-router-dom';
-import { OrchidEditor } from '../../orchidEditor/orchidEditor';
+import { OrchidEditor } from '../../orchidEditor/OrchidEditor';
 
 export const CollectionItem = (props) => {
     const item = props.item;

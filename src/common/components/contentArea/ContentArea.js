@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/ContentArea.css'
 
 export const ContentArea = (props) => {
     return (

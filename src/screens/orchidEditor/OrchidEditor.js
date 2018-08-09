@@ -3,7 +3,7 @@ import withRouter from 'react-router-dom';
 
 // Components
 import { ContentArea } from '../../common/components/contentArea/ContentArea';
-import { OrchidForm } from './components/orchidForm';
+import { OrchidForm } from './components/OrchidForm';
 
 const electron = window.require('electron');
 const {dialog} = window.require('electron').remote;
@@ -92,11 +92,17 @@ export class OrchidEditor extends React.Component {
                 filters: [
                     {name: 'Images', extensions: ['jpg', 'png', 'gif']},
             ]} , (filePaths) => {
-                filePaths !== undefined ? filePaths : [];
-                let newFiles = this.state.files.concat(filePaths);
+                let receivedPaths = filePaths != undefined ? filePaths : [];
+                let newPaths = new Set(this.state.files);
+
+                console.log(filePaths);
+
+                receivedPaths.forEach(path => {
+                    newPaths.add(path);
+                });
 
                 this.setState({
-                    files: newFiles
+                    files: Array.from(newPaths)
                 })
         });
     }
