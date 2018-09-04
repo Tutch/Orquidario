@@ -1,5 +1,5 @@
 import React from 'react';
-import withRouter from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Components
 import { ContentArea } from '../../common/components/contentArea/ContentArea';
@@ -7,7 +7,6 @@ import { OrchidForm } from './components/OrchidForm';
 
 const electron = window.require('electron');
 const {dialog} = window.require('electron').remote;
-const request = window.require('request');
 const ipcRenderer  = electron.ipcRenderer;
 
 let state = { 
@@ -21,6 +20,8 @@ let state = {
 export class OrchidEditor extends React.Component {
     constructor(props) {
         super(props);
+
+        this.config = props.config;
         this.state = state;
         this.populateSubfamilies = this.populateSubfamilies.bind(this);
         this.chooseSubfamily = this.chooseSubfamily.bind(this);
@@ -139,7 +140,8 @@ export class OrchidEditor extends React.Component {
     render() {
         return (
             <ContentArea title="Inserir Nova Orquídea">
-                <OrchidForm formFields={this.formFields}
+                <OrchidForm config={this.config}
+                            formFields={this.formFields}
                             subfamilies={this.state.subfamilies} 
                             setSubfamily={this.chooseSubfamily}
                             setDescription={this.setDescription}
@@ -150,4 +152,8 @@ export class OrchidEditor extends React.Component {
             </ContentArea>
         );
     }
+}
+
+OrchidEditor.propTypes = {
+    config: PropTypes.object
 }

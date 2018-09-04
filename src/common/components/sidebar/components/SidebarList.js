@@ -14,6 +14,10 @@ export const SidebarList = (props) => {
                                 icon="add" 
                                 link="/orchid-editor"
                                 custom=""/>
+            <SidebarListItem text="Configurações"
+                                icon="settings"
+                                link='/settings'
+                                custom=""/>
         </>
     );
 }

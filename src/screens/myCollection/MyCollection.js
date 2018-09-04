@@ -10,6 +10,9 @@ const ipcRenderer  = electron.ipcRenderer;
 export class MyCollection extends React.Component {
     constructor(props) {
         super(props);
+
+        this.config = props.config;
+        console.log(this.config);
         this.state = {};
         this.removeOrchid = this.removeOrchid.bind(this);
     }
@@ -40,7 +43,8 @@ export class MyCollection extends React.Component {
     render() {
         return (
             <ContentArea title="Minha Coleção">
-                <Collection items={this.state.collection} 
+                <Collection config={this.config}
+                            items={this.state.collection} 
                             removeOrchid={this.removeOrchid}/>
             </ContentArea>
         );

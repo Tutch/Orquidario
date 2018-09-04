@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Config from '../../../common/config';
 import './css/CollectionItem.css';
 
 // Router
@@ -8,6 +7,7 @@ import { HashRouter, Link, Route } from 'react-router-dom';
 import { OrchidEditor } from '../../orchidEditor/OrchidEditor';
 
 export const CollectionItem = (props) => {
+    const config = props.config;
     const item = props.item;
     const removeOrchid = props.removeOrchid;
     const id = item._id;
@@ -18,7 +18,7 @@ export const CollectionItem = (props) => {
             <td>{item.description}</td>
             <td>{item.subfamily}</td>
             <td>
-                <Link className={Config.mainColorText}
+                <Link className={config.mainColorText}
                       to={
                           {
                             pathname: '/orchid-editor',
@@ -28,7 +28,7 @@ export const CollectionItem = (props) => {
                         >
                     <i className="material-icons">edit</i>
                 </Link>
-                <a className={Config.mainColorText} 
+                <a className={config.mainColorText} 
                    onClick={ (e) => removeOrchid({id:id, pictures:pictures}, e)} >
                     <i className="material-icons">clear</i>
                 </a>            
@@ -38,5 +38,9 @@ export const CollectionItem = (props) => {
 }
 
 CollectionItem.propTypes = {
-    item: PropTypes.object
+    config: PropTypes.object,
+    item: PropTypes.object,
+    removeOrchid: PropTypes.func,
+    id: PropTypes.string,
+    pictures: PropTypes.array
 };

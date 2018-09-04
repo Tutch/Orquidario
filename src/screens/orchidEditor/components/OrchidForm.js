@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Config from '../../../common/config';
 import '../css/OrchidForm.css';
 
 const path = window.require('path');
 
 export const OrchidForm = (props) => {
+    const config = props.config;
     const families = props.subfamilies;
     const setSubfamily = props.setSubfamily;
     const saveOrchid = props.saveOrchid;
@@ -73,7 +73,7 @@ export const OrchidForm = (props) => {
                                                onClick={
                                                    (e) => removePicture(file, e)
                                                 }
-                                               className={'secondary-content ' + Config.mainColorText}>
+                                               className={'secondary-content ' + config.mainColorText}>
                                                 <i className="material-icons">clear</i>
                                             </Link>
                                         </div>
@@ -86,12 +86,12 @@ export const OrchidForm = (props) => {
             </div>      
             <div className="row">
                 <div className="col s12">
-                    <button className={'btn waves-effect waves-light '+ Config.mainColor} 
+                    <button className={'btn waves-effect waves-light '+ config.mainColor} 
                             onClick={selectPictures} >
                         Inserir fotos
                         <i className="material-icons right">attachment</i>
                     </button>
-                    <button id="saveOrchid" className={'btn waves-effect waves-light '+ Config.mainColor} 
+                    <button id="saveOrchid" className={'btn waves-effect waves-light '+ config.mainColor} 
                             type="submit" 
                             name="action">
                         Salvar
