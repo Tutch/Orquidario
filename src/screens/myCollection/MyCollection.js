@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import { Collection } from './components/Collection';
@@ -11,9 +12,8 @@ export class MyCollection extends React.Component {
     constructor(props) {
         super(props);
 
-        this.config = props.config;
-        console.log(this.config);
         this.state = {};
+        this.theme = props.theme;
         this.removeOrchid = this.removeOrchid.bind(this);
     }
 
@@ -43,10 +43,14 @@ export class MyCollection extends React.Component {
     render() {
         return (
             <ContentArea title="Minha Coleção">
-                <Collection config={this.config}
+                <Collection theme={this.theme}
                             items={this.state.collection} 
                             removeOrchid={this.removeOrchid}/>
             </ContentArea>
         );
     }
+}
+
+MyCollection.propTypes = {
+    theme: PropTypes.object
 }

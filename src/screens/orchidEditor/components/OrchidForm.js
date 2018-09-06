@@ -7,7 +7,7 @@ import '../css/OrchidForm.css';
 const path = window.require('path');
 
 export const OrchidForm = (props) => {
-    const config = props.config;
+    const theme = props.theme;
     const families = props.subfamilies;
     const setSubfamily = props.setSubfamily;
     const saveOrchid = props.saveOrchid;
@@ -73,7 +73,7 @@ export const OrchidForm = (props) => {
                                                onClick={
                                                    (e) => removePicture(file, e)
                                                 }
-                                               className={'secondary-content ' + config.mainColorText}>
+                                               className={'secondary-content ' + theme.mainColorText}>
                                                 <i className="material-icons">clear</i>
                                             </Link>
                                         </div>
@@ -86,12 +86,12 @@ export const OrchidForm = (props) => {
             </div>      
             <div className="row">
                 <div className="col s12">
-                    <button className={'btn waves-effect waves-light '+ config.mainColor} 
+                    <button className={'btn waves-effect waves-light '+ theme.mainColor} 
                             onClick={selectPictures} >
                         Inserir fotos
                         <i className="material-icons right">attachment</i>
                     </button>
-                    <button id="saveOrchid" className={'btn waves-effect waves-light '+ config.mainColor} 
+                    <button id="saveOrchid" className={'btn waves-effect waves-light '+ theme.mainColor} 
                             type="submit" 
                             name="action">
                         Salvar
@@ -104,6 +104,7 @@ export const OrchidForm = (props) => {
 }  
 
 OrchidForm.propTypes = {
+    theme: PropTypes.object,
     subfamilies: PropTypes.array,
     saveOrchid: PropTypes.func,
     setDescription: PropTypes.func,

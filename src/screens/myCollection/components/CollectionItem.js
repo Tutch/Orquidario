@@ -7,7 +7,7 @@ import { HashRouter, Link, Route } from 'react-router-dom';
 import { OrchidEditor } from '../../orchidEditor/OrchidEditor';
 
 export const CollectionItem = (props) => {
-    const config = props.config;
+    const theme = props.theme;
     const item = props.item;
     const removeOrchid = props.removeOrchid;
     const id = item._id;
@@ -18,7 +18,7 @@ export const CollectionItem = (props) => {
             <td>{item.description}</td>
             <td>{item.subfamily}</td>
             <td>
-                <Link className={config.mainColorText}
+                <Link className={theme.mainColorText}
                       to={
                           {
                             pathname: '/orchid-editor',
@@ -28,7 +28,7 @@ export const CollectionItem = (props) => {
                         >
                     <i className="material-icons">edit</i>
                 </Link>
-                <a className={config.mainColorText} 
+                <a className={theme.mainColorText} 
                    onClick={ (e) => removeOrchid({id:id, pictures:pictures}, e)} >
                     <i className="material-icons">clear</i>
                 </a>            

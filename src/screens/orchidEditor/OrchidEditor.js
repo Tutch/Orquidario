@@ -21,7 +21,7 @@ export class OrchidEditor extends React.Component {
     constructor(props) {
         super(props);
 
-        this.config = props.config;
+        this.theme = props.theme;
         this.state = state;
         this.populateSubfamilies = this.populateSubfamilies.bind(this);
         this.chooseSubfamily = this.chooseSubfamily.bind(this);
@@ -140,7 +140,7 @@ export class OrchidEditor extends React.Component {
     render() {
         return (
             <ContentArea title="Inserir Nova Orquídea">
-                <OrchidForm config={this.config}
+                <OrchidForm theme={this.theme}
                             formFields={this.formFields}
                             subfamilies={this.state.subfamilies} 
                             setSubfamily={this.chooseSubfamily}
@@ -155,5 +155,5 @@ export class OrchidEditor extends React.Component {
 }
 
 OrchidEditor.propTypes = {
-    config: PropTypes.object
+    theme: PropTypes.object
 }
